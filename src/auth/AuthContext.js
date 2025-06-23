@@ -12,14 +12,10 @@ export const AuthProvider = ({ children }) => {
     return data.token; 
   };
 
- const logout = async () => {
-  await axios.post('/logout');
-  localStorage.removeItem('token'); 
-  setUser(null);
- };
+
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login }}>
       {children}
     </AuthContext.Provider>
   );
